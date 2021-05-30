@@ -11,7 +11,7 @@ def adivina(num):
 
 
 def main():
-    adivina(num = int(input('Escoge un numero entre 1 y 100: ')))
+    adivina(num = int(input('Escoge un numero entre 1 y 100 y si escoges el numero correcto ganaras: ')))
 
 
 if __name__ == '__main__':
