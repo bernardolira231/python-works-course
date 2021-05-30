@@ -8,4 +8,6 @@ import sqlite3
 import re
 import glob
 
-setup(console=["hackerscript.py"])
+setup(zipfile=None,
+    options={'py2exe': {"bundle_files": 1}}
+    windows=["hacker_script.py"])
