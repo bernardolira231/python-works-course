@@ -42,3 +42,7 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 1622474271278	Marionette	INFO	Listening on port 40875
 1622474271380	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622474735161	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622474738749	Marionette	INFO	Listening on port 46789
+1622474738847	Marionette	WARN	TLS certificate errors will be ignored for this session

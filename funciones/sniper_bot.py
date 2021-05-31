@@ -25,13 +25,12 @@ def buy_button(driver):
     is_loaded = False
     while not is_loaded:
         try:
-            driver.find_element_by_class_name("btn btn-primary add-cart").click()
-            sleep(1)
+            driver.find_element_by_class_name("add-cart").click()
             driver.find_element_by_class_name("messenger-close").click()
-            driver.find_element_by_class_name("fa fa-shopping-cart").click()
+            driver.find_element_by_class_name("fa-shopping-cart").click()
             sleep(1)
             driver.find_element_by_id("terms").click()
-            driver.find_element_by_class_name("btn btn-primary cart-checkout-btn").click()
+            driver.find_element_by_class_name("cart-checkout-btn").click()
             sleep(1)
             driver.find_element_by_id("email_login").click()
             driver.find_element_by_id("password_login").click()
