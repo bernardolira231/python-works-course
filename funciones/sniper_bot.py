@@ -1,8 +1,9 @@
 from time import sleep
 from requests_html import HTMLSession
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
-URL = "https://ddtech.mx/producto/tarjeta-de-video-nvidia-geforce-rtx-3070-8gb-evga-xc3-black-gaming-08g-p5-3751-kr-solo-1-pieza-por-cliente?id=8446"
+URL = "https://ddtech.mx/producto/tarjeta-de-video-nvidia-quadro-p400-v2-2gb-gddr5-pny-dp-mini-vcqp400v2-pb?id=7781"
 
 
 def get_url_with_driver():
