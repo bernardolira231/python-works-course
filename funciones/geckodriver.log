@@ -1,1 +1,44 @@
 1622472271707	geckodriver	INFO	Listening on 127.0.0.1:59659
+1622473108016	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622473111766	Marionette	INFO	Listening on port 41937
+1622473111862	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622473115158	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1622473116156	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622473119833	Marionette	INFO	Listening on port 43367
+1622473119908	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622473138223	Marionette	INFO	Stopped listening on port 43367
+1622473140096	Marionette	INFO	Stopped listening on port 41937
+1622473163114	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622473166602	Marionette	INFO	Listening on port 43113
+1622473166700	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622473170298	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1622473171119	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622473175078	Marionette	INFO	Listening on port 40685
+1622473175158	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622473193316	Marionette	INFO	Stopped listening on port 40685
+1622473194965	Marionette	INFO	Stopped listening on port 43113
+Error: no DISPLAY environment variable specified
+1622473887954	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622473891467	Marionette	INFO	Listening on port 35851
+1622473891533	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622473895236	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1622473896269	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622473900348	Marionette	INFO	Listening on port 43521
+1622473900408	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622473908302	Marionette	INFO	Stopped listening on port 43521
+1622473924931	Marionette	INFO	Stopped listening on port 35851
+1622474099630	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622474103188	Marionette	INFO	Listening on port 46865
+1622474103238	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622474267084	Marionette	INFO	Stopped listening on port 46865
+1622474267654	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622474271278	Marionette	INFO	Listening on port 40875
+1622474271380	Marionette	WARN	TLS certificate errors will be ignored for this session
