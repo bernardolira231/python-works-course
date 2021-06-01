@@ -1,10 +1,10 @@
 import random
-from speak_and_listen import speak, hear_me
+#from speak_and_listen import speak, hear_me
 from requests_html import HTMLSession
 
 
 def main():
-    speak("Bienvenido al precio justo, vamos a intentar adivinar los precios de algunos productos")
+    #speak("Bienvenido al precio justo, vamos a intentar adivinar los precios de algunos productos")
 
     session = HTMLSession()
     main_site = session.get("https://www.pccomponentes.com")
@@ -23,7 +23,7 @@ def main():
     product_name = product.find(".c-product-card__title", first=True).text
     product_price = product.find(".c-product-card__prices-actual", first=True).txt
 
-    print(product_price.replace("Є", ""))
+    print(product_price)
 
 
 if __name__ == "__main__":
