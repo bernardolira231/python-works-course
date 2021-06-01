@@ -1,29 +1,28 @@
-import pyttsx3
 import re
-import speech_recognition as sr
+from speak_and_listen import speak, hear_me
 
 
 def identify_name(text):
     name = None
-    name = re.findall("me llamo ([A-Za-z]+)", text)
+    patterns = ["me llamo ([A-Za-z]+)", "mi nombre es ([A-Za-z]+)", "^([A-Za-z]+)$"]
+    for pattern in patterns:
+        try:
+            name = re.findall(pattern, text)
+        except IndexError:
+            print("no me ha dicho su nombre")
     return name
 
+
 def main():
-    engine = pyttsx3.init()
-    engine.setProperty("rate", 120)
-    engine.setProperty("voice", "spanish")
-    engine.say("Hola, como te llamas?")
-    engine.runAndWait()
+    speak("Hola, Como te llamas?")
 
-    r = sr.Recognizer()
+    text = hear_me()
+    name = identify_name(text)
 
-    with sr.Microphone() as source:
-        print("Puedes Hablar")
-        audio = r.listen(source)
-        text = r.recognize_google(audio, language = "es-MX")
-        name = identify_name(text)
-        engine.say("Encantada de conocerte {}".format(name[0]))
-        engine.runAndWait()
+    if name:
+        speak("Encantada de conocerte {}".format(name))
+    else:
+        speak("La verdad no te entiendo")
 
 
 if __name__ == "__main__":
