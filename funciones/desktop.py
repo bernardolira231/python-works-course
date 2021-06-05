@@ -1,6 +1,8 @@
 import PySimpleGUI as sg
 
 button_size = (7, 3)
+PLAYER_ONE = "X"
+PLAYER_TWO = "O"
 deck = [0, 0, 0,
         0, 0, 0,
         0, 0, 0]
@@ -32,7 +34,7 @@ layout = [
 
 
 def close_window(event):
-    return event == sg.WIN_CLOSED or event == "-OK-"
+    return event == sg.WIN_CLOSED or event == "-OK-" or event == "OK"
 
 
 def place_marks(window, event, current_player):
@@ -42,30 +44,32 @@ def place_marks(window, event, current_player):
         window.Element(event).Update(text=current_player)
 
 
-def check_if_someone_won(PLAYER_ONE):
+def check_if_someone_won(PLAYER_ONE, window):
     for winner_play in winner_plays:
         if deck[winner_play[0]] == deck[winner_play[1]] == deck[winner_play[2]] != 0:
             if deck[winner_play[0]] == PLAYER_ONE:
-                print("El jugador 1 ha ganado!!!")
+                sg.popup_ok("El jugador 1 ha ganado!!!")
+                window.close()
             else:
-                print("El jugador 2 ha ganado!!!")
+                sg.popup_ok("El jugador 2 ha ganado!!!")
+                window.close()
 
 
-def check_for_a_tie():
+def check_for_a_tie(window):
     if 0 not in deck:
-        print("Ha terminado el juego! Nadie ha ganado")
+        sg.popup_ok("Ha terminado el juego! Nadie ha ganado")
+        window.close()
 
 
-def change_current_player(current_player, PLAYER_ONE, PLAYER_TWO):
+def change_current_player(current_player):
     if current_player == PLAYER_ONE:
         current_player = PLAYER_TWO
     else:
         current_player = PLAYER_ONE
+    return current_player
 
 
 def main():
-    PLAYER_ONE = "X"
-    PLAYER_TWO = "O"
     current_player = PLAYER_ONE
     window = sg.Window("Gato", layout)
     while True:
@@ -73,9 +77,9 @@ def main():
         if close_window(event):
             break
         place_marks(window, event, current_player)
-        check_if_someone_won(PLAYER_ONE)
-        check_for_a_tie()
-        change_current_player(current_player, PLAYER_ONE, PLAYER_TWO)
+        check_if_someone_won(PLAYER_ONE, window)
+        check_for_a_tie(window)
+        current_player = change_current_player(current_player)
     window.close()
 
 
