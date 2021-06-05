@@ -1,10 +1,6 @@
 import PySimpleGUI as sg
 
 button_size = (7, 3)
-PLAYER_ONE = "X"
-PLAYER_TWO = "O"
-current_player = PLAYER_ONE
-
 deck = [0, 0, 0,
         0, 0, 0,
         0, 0, 0]
@@ -30,54 +26,37 @@ layout = [
              sg.Button("", key="-8-", size=button_size)
          ],
          [
-             sg.Text("", key="-Winner-")
-         ],
-         [
              sg.Button("Close", key="-OK-")
          ]
          ]
 
 
-def configure_layout():
-    sg.Window("Demo", layout)
+def close_window(event):
+    return event == sg.WIN_CLOSED or event == "-OK-"
 
 
-def close_game(event):
-    event == sg.WIN_CLOSED or event == "-OK-"
-    return
+def place_marks(window, event, current_player):
+    if window.Element(event).ButtonText == "":
+        index = int(event.replace("-", ""))
+        deck[index] = current_player
+        window.Element(event).Update(text=current_player)
 
 
-def create_deck(window, event, game_end):
-    window.Element(event).ButtonText == "" and not game_end
-    return
-
-
-def init_deck(event, window):
-    index = int(event.replace("-", ""))
-    deck[index] = current_player
-    window.Element(event).Update(text = current_player)
-    return
-
-
-def detect_winner_play(game_end):
+def check_if_someone_won(PLAYER_ONE):
     for winner_play in winner_plays:
         if deck[winner_play[0]] == deck[winner_play[1]] == deck[winner_play[2]] != 0:
             if deck[winner_play[0]] == PLAYER_ONE:
                 print("El jugador 1 ha ganado!!!")
             else:
                 print("El jugador 2 ha ganado!!!")
-            game_end = True
-    return game_end
 
 
-def tie(game_end):
+def check_for_a_tie():
     if 0 not in deck:
         print("Ha terminado el juego! Nadie ha ganado")
-        game_end = True
-        return game_end
 
 
-def change_current_player():
+def change_current_player(current_player, PLAYER_ONE, PLAYER_TWO):
     if current_player == PLAYER_ONE:
         current_player = PLAYER_TWO
     else:
@@ -85,18 +64,18 @@ def change_current_player():
 
 
 def main():
-    window = configure_layout()
-    game_end = False
+    PLAYER_ONE = "X"
+    PLAYER_TWO = "O"
+    current_player = PLAYER_ONE
+    window = sg.Window("Gato", layout)
     while True:
-        event, values = window.read()
-        if close_game(event):
+        event, value = window.read()
+        if close_window(event):
             break
-        if create_deck(window, event, game_end):
-            init_deck(event, window)
-        detect_winner_play(game_end)
-        tie(game_end)
-        change_current_player()
-
+        place_marks(window, event, current_player)
+        check_if_someone_won(PLAYER_ONE)
+        check_for_a_tie()
+        change_current_player(current_player, PLAYER_ONE, PLAYER_TWO)
     window.close()
 
 
