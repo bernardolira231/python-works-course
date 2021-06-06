@@ -61,4 +61,3 @@ def get_all_pokemons():
     return all_pokemons
 
 
-print(get_all_pokemons())
