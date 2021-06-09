@@ -24,7 +24,10 @@ def choose_pokemon(player_profile):
     while not chosen:
         print("Elige con que pokemon lucharás")
         for index in range(len(player_profile["pokemon_inventory"])):
-            print("{} - {}".format(index, get_pokemon_info(player_profile["pokemon_inventory"][index])))
+            if player_profile["pokemon_inventory"][index]["current_healt"] == 0:
+                print("{} - {} defeat".format(index, get_pokemon_info(player_profile["pokemon_inventory"][index])))
+            else:
+                print("{} - {}".format(index, get_pokemon_info(player_profile["pokemon_inventory"][index])))
         try:
             return player_profile["pokemon_inventory"][int(input("¿Cuál eliges?: "))]
         except (ValueError, IndexError):
@@ -165,8 +168,12 @@ def catch_pokemon(enemy_pokemon, player_profile):
         print("{} no ha sido capturado".format(enemy_pokemon["name"]))
 
 
-def cure_healt():
-    pass
+def cure_healt(player_profile, player_pokemon):
+    if player_profile["health_potion"] > 0:
+        player_pokemon["current_healt"] += 25
+        player_profile["health_potion"] -= 1
+    elif player_profile["health_potion"] == 0:
+        print("No tienes pociónes en el inventario")
 
 
 def life_bar(player_pokemon, enemy_pokemon):
@@ -205,13 +212,16 @@ def fight(player_profile, enemy_pokemon):
             if enemy_pokemon["current_healt"] == 0:
                 break
         elif action == "V":
-            cure_healt()
+            cure_healt(player_profile, player_pokemon)
         elif action == "C":
             player_pokemon = choose_pokemon(player_profile)
             print("Tu sacas ah {}".format(get_pokemon_info(player_pokemon)))
 
         input("Enter para continuar...")
         os.system("clear")
+
+        if enemy_pokemon["current_healt"] == 0:
+            break
 
         enemy_attack(enemy_pokemon, player_pokemon)
 
