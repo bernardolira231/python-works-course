@@ -1,4 +1,5 @@
 from requests_html import HTMLSession
+import os
 import pickle
 
 pokemon_base = {
@@ -58,6 +59,8 @@ def get_all_pokemons():
         print("\nTodos los pokemons han sido descargados!!")
 
     print("Lista de pokemons cargada")
+    input("Enter para continuar!!!!")
+    os.system("clear")
     return all_pokemons
 
 
